@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var modalContainer = document.querySelector(".modal");
   var myModal = document.querySelector(".modal-content");
   var closeButton = document.querySelector(".close-button");
-  var topButtonsContainer = document.querySelector(".top-buttons-container");
   var numberInputs = myModal.getElementsByClassName("number-input");
   var applyButton = myModal.getElementsByClassName("submit-input")[0];
   myModal.style.display = "none";
@@ -14,6 +13,13 @@ document.addEventListener("DOMContentLoaded", function () {
     myModal.style.flexDirection = "column";
     modalContainer.style.flexDirection = "column";
     myButton.style.borderBottom = "none";
+
+    if (
+      myModal.style.display == "flex" &&
+      myButton.textContent !== originalValue
+    ) {
+      closeButton.style.borderBottom = "none";
+    }
   });
 
   applyButton.addEventListener("click", function () {
@@ -41,15 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
     myButton.textContent = originalValue; // Reset the button's text to its original value
     myButton.style.backgroundColor = ""; // Reset the button's background color
     closeButton.style.display = "none"; // Hide the close button
-    // if (myModal.style.display !== "none" && !originalValue) {
-    //   closeButton.style.borderBottom = "none";
-    // }
   });
   window.addEventListener("click", function (event) {
     if (!myModal.contains(event.target) && event.target !== myButton) {
       myModal.style.display = "none";
       myButton.style.borderBottom = "solid";
       myButton.style.borderBottomColor = "#ddd";
+      closeButton.style.borderBottom = "solid";
+      closeButton.style.borderBottomColor = "#ddd";
     }
   });
 });
