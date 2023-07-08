@@ -1,0 +1,189 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+  }
+  
+  /* body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    position: relative;
+    min-height: 100vh;
+  } */
+
+/* .container{
+    width: 50%;
+    height:50%;
+    background-color: #F8F0E3;
+  }
+  
+  .modal {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 21rem;
+    min-height: 4rem;
+    z-index: 2;
+    border: 1px solid #ddd;
+   
+  }
+.input-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 0.5rem;
+}
+
+.number-input {
+    border: 1px solid #ddd;
+    font-size: 0.9em;
+    padding: 0.3rem 0.2rem;
+    margin-bottom: 0.5rem;
+
+}
+
+.submit-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0.3rem;
+    border: 1px solid #ddd;
+    border-bottom: 0;
+}
+
+/* .modal input {
+    padding: 0.4rem 0.5rem;
+    border: 1px solid #ddd;
+    font-size: 0.9em;
+    
+  } */
+
+/* .modal .flex {
+    display: flex;
+    justify-content: flex-end;
+  }
+   */
+
+/* .modal p {
+    font-size: 0.9rem;
+    color: #777;
+    margin: 0.4rem 0 0.2rem;
+  } */
+
+/* button {
+    cursor: pointer;
+    /* border: none;
+    font-weight: 600; 
+  }
+   */
+
+/* .btn {
+    display: inline-block;
+    padding: 0.8rem 1.4rem;
+    font-weight: 700;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+  } */
+
+/* .btn-open {
+    position: absolute;
+    bottom: 150px;
+  } */
+
+/* .btn-close {
+    transform: translate(10px, -20px);
+    padding: 0.5rem 0.7rem;
+    background: #eee;
+    border-radius: 50%;
+  } */
+
+/* .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+  }
+  
+  .hidden {
+    display: none;
+  }  */
+
+.modal {
+  /*    
+display: flex;
+    flex-direction: column; */
+  align-items: flex-start;
+}
+
+.modal-content {
+  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+
+  width: 21rem;
+  border: 1px solid #ddd;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+}
+.number-input {
+  display: block;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.9em;
+  padding: 0.3rem 0.2rem;
+  margin: 0.3rem 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.submit-input {
+  padding: 0.3rem;
+  border: 0.1rem solid #ddd;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  width: 100%;
+}
+
+.close-button {
+  display: none;
+  background-color: #ffffe0;
+  border: 0.1rem solid #ddd;
+  border-left: none;
+  padding: 0.3rem;
+}
+
+.valueButton {
+  padding: 0.3rem 0.5rem;
+  border-width: 0.1rem;
+  border: 0.1rem solid #ddd;
+  background-color: #fff;
+}
+
+.top-buttons-container {
+  display: flex;
+}
