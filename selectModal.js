@@ -1,32 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var myButton = document.getElementById("myButton");
-  var modalContainer = document.querySelector(".modal");
+  var valueButton = document.getElementById("value-button");
+  var container = document.querySelector("#container");
   var myModal = document.querySelector(".modal-content");
   var closeButton = document.querySelector(".close-button");
   var numberInputs = myModal.getElementsByClassName("number-input");
   var applyButton = myModal.getElementsByClassName("submit-input")[0];
   myModal.style.display = "none";
-  var originalValue = myButton.textContent; // Store the original value of the button
+  var originalValue = valueButton.textContent; // Store the original value of the button
   var modalVisible = false;
 
   function toggleModal(closeOnly) {
     if (modalVisible) {
       modalVisible = false;
       myModal.style.display = "none";
-      //   myButton.style.borderBottom = "solid";
-      //   myButton.style.borderBottomColor = "#ddd";
       closeButton.style.borderBottom = "solid";
       closeButton.style.borderBottomColor = "#ddd";
     } else if (!closeOnly) {
       modalVisible = true;
       myModal.style.display = "flex";
       myModal.style.flexDirection = "column";
-      modalContainer.style.flexDirection = "column";
-      //   myButton.style.borderBottom = "none";
+      container.style.flexDirection = "column";
     }
   }
 
-  myButton.addEventListener("click", function () {
+  valueButton.addEventListener("click", function () {
     toggleModal();
   });
 
@@ -39,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
       " - " +
       Math.max(input1Value, input2Value);
 
-    myButton.textContent = newValue;
-    myButton.style.backgroundColor = "lightyellow";
+    valueButton.textContent = newValue;
+    valueButton.style.backgroundColor = "lightyellow";
     closeButton.style.display = "inline-block"; // Show the close button
     toggleModal();
     numberInputs[0].value = "";
@@ -48,12 +45,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   closeButton.addEventListener("click", function () {
-    myButton.textContent = originalValue; // Reset the button's text to its original value
-    myButton.style.backgroundColor = ""; // Reset the button's background color
+    valueButton.textContent = originalValue; // Reset the button's text to its original value
+    valueButton.style.backgroundColor = ""; // Reset the button's background color
     closeButton.style.display = "none"; // Hide the close button
   });
   window.addEventListener("click", function (event) {
-    if (!myModal.contains(event.target) && event.target !== myButton) {
+    if (!myModal.contains(event.target) && event.target !== valueButton) {
       toggleModal(true);
     }
   });
