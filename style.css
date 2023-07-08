@@ -131,8 +131,8 @@ display: flex;
 }
 
 .modal-content {
+  margin-top: 3px;
   display: none;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #fff;
@@ -180,7 +180,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .valueButton {
   padding: 0.3rem 0.5rem;
   border-width: 0.1rem;
-  border: 0.1rem solid #ddd;
+  border-style: solid;
+  border-color: #ddd;
   background-color: #fff;
 }
 

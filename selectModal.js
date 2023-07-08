@@ -7,40 +7,44 @@ document.addEventListener("DOMContentLoaded", function () {
   var applyButton = myModal.getElementsByClassName("submit-input")[0];
   myModal.style.display = "none";
   var originalValue = myButton.textContent; // Store the original value of the button
+  var modalVisible = false;
+
+  function toggleModal(closeOnly) {
+    if (modalVisible) {
+      modalVisible = false;
+      myModal.style.display = "none";
+      //   myButton.style.borderBottom = "solid";
+      //   myButton.style.borderBottomColor = "#ddd";
+      closeButton.style.borderBottom = "solid";
+      closeButton.style.borderBottomColor = "#ddd";
+    } else if (!closeOnly) {
+      modalVisible = true;
+      myModal.style.display = "flex";
+      myModal.style.flexDirection = "column";
+      modalContainer.style.flexDirection = "column";
+      //   myButton.style.borderBottom = "none";
+    }
+  }
 
   myButton.addEventListener("click", function () {
-    myModal.style.display = "flex";
-    myModal.style.flexDirection = "column";
-    modalContainer.style.flexDirection = "column";
-    myButton.style.borderBottom = "none";
-
-    if (
-      myModal.style.display == "flex" &&
-      myButton.textContent !== originalValue
-    ) {
-      closeButton.style.borderBottom = "none";
-    }
+    toggleModal();
   });
 
   applyButton.addEventListener("click", function () {
-    var newValue = "";
     var input1Value = parseInt(numberInputs[0].value);
     var input2Value = parseInt(numberInputs[1].value);
-    if (input1Value > input2Value) {
-      newValue = "Value " + input2Value + " - " + input1Value;
-    } else {
-      newValue = "Value " + input1Value + " - " + input2Value;
-    }
+    var newValue =
+      "Value " +
+      Math.min(input1Value, input2Value) +
+      " - " +
+      Math.max(input1Value, input2Value);
 
     myButton.textContent = newValue;
     myButton.style.backgroundColor = "lightyellow";
     closeButton.style.display = "inline-block"; // Show the close button
-    myModal.style.display = "none";
-    modalContainer.style.flexDirection = "row";
+    toggleModal();
     numberInputs[0].value = "";
     numberInputs[1].value = "";
-    myButton.style.borderBottom = "solid";
-    myButton.style.borderBottomColor = "#ddd";
   });
 
   closeButton.addEventListener("click", function () {
@@ -50,43 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   window.addEventListener("click", function (event) {
     if (!myModal.contains(event.target) && event.target !== myButton) {
-      myModal.style.display = "none";
-      myButton.style.borderBottom = "solid";
-      myButton.style.borderBottomColor = "#ddd";
-      closeButton.style.borderBottom = "solid";
-      closeButton.style.borderBottomColor = "#ddd";
+      toggleModal(true);
     }
   });
 });
-
-// const modal = document.querySelector(".modal");
-// const overlay = document.querySelector(".overlay");
-// const openModalBtn = document.querySelector(".btn-open");
-// const closeModalBtn = document.querySelector(".btn-close");
-
-// // close modal function
-// const closeModal = function () {
-//   modal.classList.add("hidden");
-//   overlay.classList.add("hidden");
-//   openModalBtn.classList.remove("hidden")
-// };
-
-// // close the modal when the close button and overlay is clicked
-// closeModalBtn.addEventListener("click", closeModal);
-// overlay.addEventListener("click", closeModal);
-
-// // close modal when the Esc key is pressed
-// document.addEventListener("keydown", function (e) {
-//   if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-//     closeModal();
-//   }
-// });
-
-// // open modal function
-// const openModal = function () {
-//   modal.classList.remove("hidden");
-//   overlay.classList.remove("hidden");
-//   openModalBtn.classList.add("hidden")
-// };
-// // open modal event
-// openModalBtn.addEventListener("click", openModal)
